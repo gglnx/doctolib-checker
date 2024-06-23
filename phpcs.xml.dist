@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+  <!-- Settings -->
+  <arg name="basepath" value="." />
+  <arg name="cache" value=".phpcs-cache" />
+  <arg name="colors" />
+  <arg name="extensions" value="php" />
+
+  <!-- Paths to check -->
+  <file>src/</file>
+  <file>bin/doctolib-checker</file>
+
+  <!-- Exclude following patterns from check -->
+  <exclude-pattern>tests/**/__snapshots__/*</exclude-pattern>
+  <exclude-pattern>vendor/**/*</exclude-pattern>
+
+  <!-- Include the PSR12 Coding Standard -->
+  <rule ref="PSR12" />
+
+  <!-- Use statements should be ordered alphabetically -->
+  <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
+    <properties>
+      <property name="caseSensitive" value="false" />
+    </properties>
+  </rule>
+
+  <!-- Non used use statements should be removed -->
+  <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
+    <properties>
+      <property name="searchAnnotations" value="true" />
+    </properties>
+  </rule>
+
+  <!-- Trailing commas for multiline function calls and declarations -->
+  <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInCall" />
+  <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInDeclaration" />
+
+  <!-- Require nullable types to be declared as such -->
+  <rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue" />
+
+  <!-- Enforce correct formatting of return types hints -->
+  <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing" />
+
+  <!-- Warn about unused or undeclarded variables -->
+  <rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis">
+    <properties>
+      <property name="allowUnusedFunctionParameters" value="true" />
+      <property name="ignoreUnusedRegexp" value="/^_/" />
+    </properties>
+  </rule>
+
+  <!-- Ignore line length limitation for comments -->
+  <rule ref="Generic.Files.LineLength">
+    <properties>
+      <property name="ignoreComments" value="true" />
+    </properties>
+  </rule>
+
+  <!-- Warn about unused function parameters excepted in extended/implemented classes -->
+  <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
+    <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClass" />
+    <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed" />
+    <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed" />
+    <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterface" />
+    <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceBeforeLastUsed" />
+    <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceAfterLastUsed" />
+  </rule>
+
+  <!-- Output warning about TODO comments in code review -->
+  <rule ref="Generic.Commenting.Todo.TaskFound">
+    <message>Please review this TODO comment: %s</message>
+    <severity>4</severity>
+  </rule>
+
+  <!-- Warn about FIXME comments -->
+  <rule ref="Generic.Commenting.Fixme" />
+
+  <!-- Use always single quotes, except the string contains a variable -->
+  <rule ref="Squiz.Strings.DoubleQuoteUsage">
+    <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar" />
+  </rule>
+
+  <!-- Use the short array syntax -->
+  <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+</ruleset>

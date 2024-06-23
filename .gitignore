@@ -1,0 +1,11 @@
+vendor
+.phpcs-cache
+.phpcs.xml
+phpunit.xml
+.phpunit.result.cache
+.phpunit.cache
+phpunit_result.xml
+phpstan.neon
+.phpstan-cache
+dist
+config.yml

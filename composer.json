@@ -1,0 +1,32 @@
+{
+  "name": "gglnx/doctolib-checker",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "DoctolibChecker\\": "src/"
+    }
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "deployer/deployer": "^7.3",
+    "phpstan/phpstan": "*",
+    "sirbrillig/phpcs-variable-analysis": "^2.11",
+    "slevomat/coding-standard": "*",
+    "squizlabs/php_codesniffer": "*",
+    "humbug/box": "^4.6"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "require": {
+    "symfony/console": "^7.1",
+    "symfony/filesystem": "^7.1",
+    "symfony/yaml": "^7.1",
+    "cuyz/valinor": "^1.12",
+    "guzzlehttp/guzzle": "^7.8",
+    "symfony/notifier": "^7.1",
+    "symfony/telegram-notifier": "^7.1"
+  }
+}
